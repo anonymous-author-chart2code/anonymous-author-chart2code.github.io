@@ -14,7 +14,8 @@
 
         /* Updated Sidebar Subheadings */
         .sidebar h3 { 
-            text-align: center; 
+            text-align: left; 
+            padding-left: 20px;
             font-size: 1.05rem; 
             color: #bdc3c7; 
             text-transform: uppercase; 
@@ -24,9 +25,22 @@
             padding-bottom: 8px; 
         }
 
+        /* 子菜单项加大缩进 */
         .nav-list { list-style: none; padding: 0; margin: 0; }
-        .nav-list li a { display: block; padding: 12px 20px; color: #ecf0f1; text-decoration: none; border-bottom: 1px solid #34495e; transition: background 0.2s; font-size: 0.95rem; }
-        .nav-list li a:hover, .nav-list li a.active { background-color: #34495e; border-left: 4px solid #3498db; padding-left: 16px; }
+        .nav-list li a { 
+            display: block; 
+            padding: 12px 20px 12px 52px; /* 加大到48px产生更明显的缩进 */
+            color: #ecf0f1; 
+            text-decoration: none; 
+            border-bottom: 1px solid #34495e; 
+            transition: background 0.2s; 
+            font-size: 0.95rem; 
+        }
+        .nav-list li a:hover, .nav-list li a.active { 
+            background-color: #34495e; 
+            border-left: 4px solid #3498db; 
+            padding-left: 48px; /* 48px减去4px边框，保持文字不动 */
+        }
 
         /* Main Content */
         .main-content { margin-left: var(--sidebar-width); padding: 30px 40px; flex: 1; max-width: 1200px; }
@@ -80,7 +94,7 @@
 
         <h3>Good Cases</h3>
         <ul class="nav-list" id="nav-good">
-            <li><a href="#" data-target="good-cases-overview" class="">Overview (10)</a></li>
+            <li><a href="#" data-target="good-cases-overview" class="">Overview (9)</a></li>
 
         </ul>
 
@@ -148,7 +162,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> The colors of both the upper and lower subplots in the model output on the right do not match those in the GT Figure, indicating that the model's recognition of colors is not detailed enough.
+                <strong>Analysis:</strong> A clear deviation in color representation is evident between the generated result (right) and the ground-truth (GT) figure across both the upper and lower subplots. This discrepancy indicates insufficient sensitivity to color details, leading to inaccurate reproduction of the original color encoding.
             </div>
             
         </div>
@@ -173,7 +187,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> The color gradient recognition in the model output on the right differs significantly from that of the GT Figure, indicating a deficiency in the model's ability to perceive colors accurately.
+                <strong>Analysis:</strong> Significant discrepancies in color transitions are observed between the model-generated output (right) and the ground-truth (GT) figure, indicating limitations in the model’s ability to accurately perceive and reproduce subtle variations in color.
             </div>
             
         </div>
@@ -336,7 +350,7 @@
                 <span>Case 1: bar_24.png</span>
                 <div class="badge-group">
                     <span class="level-badge">Level 1</span>
-                    <span class="model-badge">gpt_5.2direct</span>
+                    <span class="model-badge">gpt_5.2_direct</span>
                 </div>
             </div>
             <div class="comparison-container">
@@ -346,7 +360,7 @@
                 </div>
                 <div class="image-box">
                     <div class="image-title">Model Output</div>
-                    <img src="data1/data/gpt_5.2direct/bar_24.png" alt="Model Output">
+                    <img src="data1/data/gpt_5.2_direct/bar_24.png" alt="Model Output">
                 </div>
             </div>
             
@@ -604,7 +618,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> The data distribution in the model output on the right is inconsistent with that of the GT Figure, indicating insufficient data accuracy and a deficiency in the model's ability to recognize and analyze the original chart's data.
+                <strong>Analysis:</strong> The generated output (right) exhibits inconsistencies in data distribution compared with the ground-truth (GT) figure, reflecting deficiencies in data representation accuracy and limitations in the model’s ability to correctly analyze the source chart.
             </div>
             
         </div>
@@ -679,7 +693,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> The data distribution in the model output on the right is inconsistent with that of the GT Figure, indicating insufficient data accuracy and a deficiency in the model's ability to recognize and analyze the original chart's data.
+                <strong>Analysis:</strong> The generated output (right) exhibits inconsistencies in data distribution compared with the ground-truth (GT) figure, including the omission of an entire data series, reflecting deficiencies in data representation accuracy and limitations in the model’s ability to correctly analyze the source chart.
             </div>
             
         </div>
@@ -807,7 +821,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> The y‑axis range in the model output on the right is problematic, causing part of the data to be invisible. This indicates an insufficient match between the axis range and the data. Additionally, errors occurred in data recognition and analysis.
+                <strong>Analysis:</strong> The generated output (right) adopts an unsuitable y-axis range, resulting in incomplete data visualization. Such inconsistency suggests improper scaling relative to the dataset and highlights limitations in the model’s data extraction and analytical capabilities.
             </div>
             
         </div>
@@ -882,7 +896,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> In the model's output chart, the Y-axis range is incorrectly set to 0–3.5, which is much smaller than the 0–4 range in the ground truth, causing the upper part of the stacked area chart to be cut off. Additionally, the leftmost content of the chart is missing.
+                <strong>Analysis:</strong> In the model-generated chart, the y-axis range is incorrectly set to 0–3.5, which is narrower than the 0–4 range in the ground truth, resulting in the upper portion of the stacked area chart being truncated. Additionally, the leftmost segment of the chart is missing. These issues indicate deficiencies in the model’s data extraction capability and its ability to accurately infer the underlying numerical scale.
             </div>
             
         </div>
@@ -1113,7 +1127,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> The grid line style in the model output on the right is inconsistent with that of the GT Figure, indicating a deficiency in the model's ability to perceive fine-grained visual details.
+                <strong>Analysis:</strong> The grid line style in the model-generated output (right) is inconsistent with that of the ground-truth (GT) figure, with dashed lines appearing on the right side where they are not present in the reference. This discrepancy indicates a deficiency in the model’s ability to perceive and faithfully reproduce fine-grained visual details.
             </div>
             
         </div>
@@ -1341,7 +1355,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> There is severe overlap among the numerical labels in the model output on the right, which greatly impacts the visual aesthetics. Additionally, there is a noticeable deficiency in the recognition of numerical values.
+                <strong>Analysis:</strong> There is severe overlap among the labels in the model output on the right, which greatly impacts the visual aesthetics. Additionally, there is a noticeable deficiency in the recognition of numerical values.
             </div>
             
         </div>
@@ -1519,7 +1533,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> In the generated chart, the dashed grid lines that were present in the ground truth are completely missing, which directly reflects the model's failure to capture and reproduce fine-grained visual attributes.
+                <strong>Analysis:</strong> In the generated chart, the dashed grid lines present in the ground truth are completely missing, and the color gradients are not accurately replicated. This directly reflects the model’s failure to capture and reproduce fine-grained visual attributes.
             </div>
             
         </div>
@@ -1705,49 +1719,7 @@
         
         <div class="case-card" data-level="task3">
             <div class="case-header header-good">
-                <span>Case 7: table32_1_generate.png</span>
-                <div class="badge-group">
-                    <span class="level-badge">Level 3</span>
-                    <span class="model-badge">gemini_3_pro_level3</span>
-                </div>
-            </div>
-            <div class="comparison-container">
-                <div class="image-box">
-                    <div class="image-title">Ground Truth</div>
-                    <img src="data1/data_good/level3/table32_1_generate.png" alt="Ground Truth">
-                </div>
-                <div class="image-box">
-                    <div class="image-title">Model Output</div>
-                    <img src="data1/data_good/gemini_3_pro_level3/table32_1_generate.png" alt="Model Output">
-                </div>
-            </div>
-            
-        </div>
-        
-        <div class="case-card" data-level="task3">
-            <div class="case-header header-good">
-                <span>Case 8: table1_2_generate.png</span>
-                <div class="badge-group">
-                    <span class="level-badge">Level 3</span>
-                    <span class="model-badge">gemini_3_pro_level3</span>
-                </div>
-            </div>
-            <div class="comparison-container">
-                <div class="image-box">
-                    <div class="image-title">Ground Truth</div>
-                    <img src="data1/data_good/level3/table1_2_generate.png" alt="Ground Truth">
-                </div>
-                <div class="image-box">
-                    <div class="image-title">Model Output</div>
-                    <img src="data1/data_good/gemini_3_pro_level3/table1_2_generate.png" alt="Model Output">
-                </div>
-            </div>
-            
-        </div>
-        
-        <div class="case-card" data-level="task3">
-            <div class="case-header header-good">
-                <span>Case 9: table11_2_generate.png</span>
+                <span>Case 7: table11_2_generate.png</span>
                 <div class="badge-group">
                     <span class="level-badge">Level 3</span>
                     <span class="model-badge">gemini_3_pro_level3</span>
@@ -1768,7 +1740,7 @@
         
         <div class="case-card" data-level="task3">
             <div class="case-header header-good">
-                <span>Case 10: table11_3_generate.png</span>
+                <span>Case 8: table11_3_generate.png</span>
                 <div class="badge-group">
                     <span class="level-badge">Level 3</span>
                     <span class="model-badge">gemini_3_pro_level3</span>
@@ -1782,6 +1754,27 @@
                 <div class="image-box">
                     <div class="image-title">Model Output</div>
                     <img src="data1/data_good/gemini_3_pro_level3/table11_3_generate.png" alt="Model Output">
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="case-card" data-level="task3">
+            <div class="case-header header-good">
+                <span>Case 9: table1_2_generate.png</span>
+                <div class="badge-group">
+                    <span class="level-badge">Level 3</span>
+                    <span class="model-badge">gemini_3_pro_level3</span>
+                </div>
+            </div>
+            <div class="comparison-container">
+                <div class="image-box">
+                    <div class="image-title">Ground Truth</div>
+                    <img src="data1/data_good/level3/table1_2_generate.png" alt="Ground Truth">
+                </div>
+                <div class="image-box">
+                    <div class="image-title">Model Output</div>
+                    <img src="data1/data_good/gemini_3_pro_level3/table1_2_generate.png" alt="Model Output">
                 </div>
             </div>
             
@@ -1860,7 +1853,7 @@
             </div>
             
             <div class="analysis-text">
-                <strong>Analysis:</strong> As illustrated by the calibration dashboard, the highly complex composite instructions—which demand asymmetric grid ratios, cross-plot axis sharing, and data-conditional annotations—overwhelm the model's logical reasoning and multi-task scheduling capacities; this not only causes a complete collapse of structural layout constraints but also leads to the total omission of crucial analytical visual elements, such as the maximum error highlight.
+                <strong>Analysis:</strong> As illustrated by the calibration dashboard, the highly complex composite instructions—which demand cross-plot axis sharing, and data-conditional annotations—overwhelm the model's logical reasoning and multi-task scheduling capacities; this not only causes a complete collapse of structural layout constraints but also leads to the total omission of crucial analytical visual elements, such as the maximum error highlight.
             </div>
             
         </div>
@@ -1942,7 +1935,32 @@
         
         <div class="case-card" data-level="task3">
             <div class="case-header header-specific">
-                <span>Case 7: table3_3_generate.png</span>
+                <span>Case 7: table43_5_generate.png</span>
+                <div class="badge-group">
+                    <span class="level-badge">Level 3</span>
+                    <span class="model-badge">claude_level3</span>
+                </div>
+            </div>
+            <div class="comparison-container">
+                <div class="image-box">
+                    <div class="image-title">Ground Truth</div>
+                    <img src="data1/data_specific/level3/table43_5_generate.png" alt="Ground Truth">
+                </div>
+                <div class="image-box">
+                    <div class="image-title">Model Output</div>
+                    <img src="data1/data_specific/claude_level3/table43_5_generate.png" alt="Model Output">
+                </div>
+            </div>
+            
+            <div class="analysis-text">
+                <strong>Analysis:</strong> In the generated bubble chart, the model suffered from severe multi-dimensional mapping failure when processing complex data (X, Y, bubble size, and color), not only erroneously altering the linear axis to a logarithmic scale—causing extreme distortion in data distribution—but also completely losing the continuous color mapping.
+            </div>
+            
+        </div>
+        
+        <div class="case-card" data-level="task3">
+            <div class="case-header header-specific">
+                <span>Case 8: table3_3_generate.png</span>
                 <div class="badge-group">
                     <span class="level-badge">Level 3</span>
                     <span class="model-badge">gpt_5.2_level3</span>
@@ -1967,7 +1985,7 @@
         
         <div class="case-card" data-level="task3">
             <div class="case-header header-specific">
-                <span>Case 8: table42_5_generate.png</span>
+                <span>Case 9: table42_5_generate.png</span>
                 <div class="badge-group">
                     <span class="level-badge">Level 3</span>
                     <span class="model-badge">claude_level3</span>
@@ -1992,7 +2010,7 @@
         
         <div class="case-card" data-level="task3">
             <div class="case-header header-specific">
-                <span>Case 9: table42_4_generate.png</span>
+                <span>Case 10: table42_4_generate.png</span>
                 <div class="badge-group">
                     <span class="level-badge">Level 3</span>
                     <span class="model-badge">claude_level3</span>
@@ -2011,31 +2029,6 @@
             
             <div class="analysis-text">
                 <strong>Analysis:</strong> As illustrated in the generated heatmap, the complex two-dimensional tabular data exceeds the model's effective context capacity, triggering a severe 'lost-in-the-middle' phenomenon that ultimately results in massive row-level data extraction failures and extensive blank areas.
-            </div>
-            
-        </div>
-        
-        <div class="case-card" data-level="task3">
-            <div class="case-header header-specific">
-                <span>Case 10: table43_5_generate.png</span>
-                <div class="badge-group">
-                    <span class="level-badge">Level 3</span>
-                    <span class="model-badge">claude_level3</span>
-                </div>
-            </div>
-            <div class="comparison-container">
-                <div class="image-box">
-                    <div class="image-title">Ground Truth</div>
-                    <img src="data1/data_specific/level3/table43_5_generate.png" alt="Ground Truth">
-                </div>
-                <div class="image-box">
-                    <div class="image-title">Model Output</div>
-                    <img src="data1/data_specific/claude_level3/table43_5_generate.png" alt="Model Output">
-                </div>
-            </div>
-            
-            <div class="analysis-text">
-                <strong>Analysis:</strong> In the generated bubble chart, the model suffered from severe multi-dimensional mapping failure when processing complex data (X, Y, bubble size, and color), not only erroneously altering the linear axis to a logarithmic scale—causing extreme distortion in data distribution—but also completely losing the continuous color mapping.
             </div>
             
         </div>
